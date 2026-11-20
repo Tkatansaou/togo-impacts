@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "togo-impacts"
+version = "0.1.0"
+description = "Bias-aware extraction of flood/drought impacts from French-language news (Togo) and comparison with EM-DAT"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Tchaa Katansaou", email = "katantchaa@gmail.com"}]
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "requests>=2.31", "openpyxl>=3.1"]
+
+[project.optional-dependencies]
+fetch = ["trafilatura>=1.6"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+togo-impacts = "togo_impacts.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
